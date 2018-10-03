@@ -1,3 +1,4 @@
+import { ManagePostComponent } from './manage-post/manage-post.component';
 import { SinglePostComponent } from './single-post/single-post.component';
 import { PostComponent } from './post/post.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -14,6 +15,11 @@ import { PostService } from './post.service';
 import { PostContainerComponent } from './post-container/post-container.component';
 import { LoginComponent } from './login/login.component';
 import { UserService } from './user.service';
+import { JwtModule } from '@auth0/angular-jwt';
+import { RoutingService } from './routing.service';
+import { EditorComponent } from './editor/editor.component';
+
+const tokenGetter = () => localStorage.getItem("token");
 
 @NgModule({
     declarations: [
@@ -24,16 +30,28 @@ import { UserService } from './user.service';
         PostContainerComponent,
         PostComponent,
         SinglePostComponent,
-        LoginComponent
+        LoginComponent,
+        ManagePostComponent,
+        EditorComponent
     ],
-    imports: [BrowserModule, FormsModule, HttpClientModule, AppRoutingModule ],
+    imports: [BrowserModule, FormsModule, HttpClientModule, AppRoutingModule,
+        JwtModule.forRoot({
+            config: {
+                tokenGetter,
+                whitelistedDomains: [
+                    'localhost:3000',
+                    '%herokuapp%'
+                ]
+            }
+        }) ],
     exports: [],
     providers: [
         // add injectable things here
         TodoService,
         CategoryService,
         PostService,
-        UserService
+        UserService,
+        RoutingService
     ],
     bootstrap: [AppComponent]
 })

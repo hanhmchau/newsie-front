@@ -3,6 +3,7 @@ import { PostContainerComponent } from './post-container/post-container.componen
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 import { LoginComponent } from './login/login.component';
+import { ManagePostComponent } from './manage-post/manage-post.component';
 
 const routes: Routes = [
     {
@@ -17,6 +18,10 @@ const routes: Routes = [
     {
         path: 'login',
         component: LoginComponent
+    },
+    {
+        path: 'new-post',
+        component: ManagePostComponent
     }
     // {
     //     path: "user/:id",
