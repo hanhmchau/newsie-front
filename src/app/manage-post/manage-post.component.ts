@@ -26,12 +26,12 @@ export class ManagePostComponent {
             switchMap((params: ParamMap) =>{
                 const id = params.get("id");
                 if (id) {
-                    return this.postService.getPostById(id);
+                    return this.postService.getPrivatePostById(id);
                 }
                 return of(null);
             }),
             tap(console.log)
-        ).subscribe(post => post)
+        ).subscribe(post => this.post = post)
     }
 
 }

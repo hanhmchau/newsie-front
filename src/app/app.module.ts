@@ -1,3 +1,4 @@
+import { SafeStylePipe } from './safe-style.pipe';
 import { ManagePostComponent } from './manage-post/manage-post.component';
 import { SinglePostComponent } from './single-post/single-post.component';
 import { PostComponent } from './post/post.component';
@@ -32,7 +33,8 @@ const tokenGetter = () => localStorage.getItem("token");
         SinglePostComponent,
         LoginComponent,
         ManagePostComponent,
-        EditorComponent
+        EditorComponent,
+        SafeStylePipe
     ],
     imports: [BrowserModule, FormsModule, HttpClientModule, AppRoutingModule,
         JwtModule.forRoot({

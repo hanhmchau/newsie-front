@@ -22,6 +22,10 @@ const routes: Routes = [
     {
         path: 'new-post',
         component: ManagePostComponent
+    },
+    {
+        path: 'manage-post/:id',
+        component: ManagePostComponent
     }
     // {
     //     path: "user/:id",
